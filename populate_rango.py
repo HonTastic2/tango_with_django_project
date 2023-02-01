@@ -1,4 +1,5 @@
 import os
+import random
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.settings')
 
 import django
@@ -39,7 +40,7 @@ def populate():
         elif (cat =='Other Frameworks'):
             c = add_cat(cat, 32, 16)
         for p in cat_data['pages']:
-            add_page(c, p['title'], p['url'])
+            add_page(c, p['title'], p['url'], random.randint(1,500))
           
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
